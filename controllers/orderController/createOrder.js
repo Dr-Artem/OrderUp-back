@@ -9,14 +9,6 @@ const createOrder = async (req, res) => {
         _id: { $in: products.map((p) => p.productId) },
     });
 
-    // let totalAmount = 0;
-    // orderProducts.forEach((product) => {
-    //     const quantity = products.find(
-    //         (p) => p.productId === product._id.toString()
-    //     ).quantity;
-    //     totalAmount += product.price * quantity;
-    // });
-
     const newOrder = {
         products: orderProducts.map((product) => ({
             productId: product._id,
