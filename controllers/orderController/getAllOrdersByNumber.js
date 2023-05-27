@@ -1,8 +1,10 @@
 const { Order } = require("../../models");
 
 const getAllOrdersByNumber = async (req, res) => {
-    const { phoneNumber } = req.body;
-    const orders = await Order.find({ phoneNumber });
+    const { phoneNumber } = req.params;
+    const orders = await Order.find({
+        phoneNumber: phoneNumber,
+    }).populate("products.product");
 
     res.json({
         status: "OK",

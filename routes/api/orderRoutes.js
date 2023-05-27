@@ -5,7 +5,7 @@ const { errorControlMiddleware } = require("../../middlewares");
 const { order: ctrl } = require("../../controllers");
 
 router.get("/", errorControlMiddleware(ctrl.getAllOrders));
-router.get("/user-orders", errorControlMiddleware(ctrl.getAllOrdersByNumber));
+router.get("/:phoneNumber", errorControlMiddleware(ctrl.getAllOrdersByNumber));
 router.post("/create", errorControlMiddleware(ctrl.createOrder));
 
 module.exports = router;
